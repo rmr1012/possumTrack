@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prep interview with the best questions">
+  <meta name="author" content="Dennis Ren">
+  <!-- <meta property="og:title" content="Polarize.news"/>
+  <meta property="og:url" content="http://Polarize.news" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Read polarized news to form your own opinion!"/>
+  <meta property="og:image" content="http://dennisren.com/static/images/ogimage.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:image:alt" content="Hey we don't look so bad in this picture" /> -->
+  <link rel="icon" type="image/png" href="static/img/stackQuiz/icon.png" />
+  <title>StackInterview</title>
+
+  <!--Import Google Icon Font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="{% static "css/possumTrack/home.css" %}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99987215-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-99987215-1');
+  </script>
+
+</head>
+
+<body>
+
+
+
+
+<div class="row canvas">
+
+  <div class="timestamp">
+    <span></span>
+  </div>
+  <div class="col s3">
+    <div class="row vcenter PVrow ">
+      <img src="/static/img/possumTrack/solar-panel.svg">
+      <div class="col s12 PVWatt">
+        <span class="ST"></span>
+      </div>
+    </div>
+    <div class="row batteryrow">
+      <div class="battery col s12">
+        <div class="battery-status "><span></span></div>
+        <div class="battery-current "><span></span></div>
+        <div class="battery-SOC "><span></span></div>
+        <div class="battery-Voltage"><span></span></div>
+        <div class="battery-level alert" style="height:50%;"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col s9">
+    <div class="row slicerow">
+      <div class="col s6 time MT vcenter">
+        <span></span>
+      </div>
+      <div class="col s6 date MT vcenter">
+        <span></span>
+      </div>
+    </div>
+
+    <div class="row slicerow">
+      <div class="col s2 ST vcenter">
+        <span>Outside</span>
+      </div>
+      <div class="col s3 unitText vcenter">
+        <span class="LT outsideTemp"></span>
+        <span class="cornerText ST">°F</span>
+      </div>
+      <div class="col s3 unitText vcenter">
+        <span class="LT outsideHum"></span>
+        <span class="cornerText ST">%RH</span>
+      </div>
+      <div class="col s2 weatherSymbol vcenter">
+        <img class= "weatherIcon">
+      </div>
+      <div class="col s2 weatherText vcenter">
+        <span class="ST"></span>
+        <div class="location"></div>
+      </div>
+    </div>
+
+
+    <div class="row slicerow">
+      <div class="col s2 ST vcenter">
+        <span>Inside</span>
+      </div>
+      <div class="col s2 unitText vcenter">
+        <span class="MT insideTemp"></span>
+        <span class="cornerText ST">°F</span>
+      </div>
+      <div class="col s2 unitText vcenter">
+        <span class="MT insideHum"></span>
+        <span class="cornerText ST">%RH</span>
+      </div>
+      <div class="col s2 ST vcenter">
+        <span>Cab</span>
+      </div>
+      <div class="col s2 unitText vcenter">
+        <span class="MT cabTemp"></span>
+        <span class="cornerText ST">°F</span>
+      </div>
+      <div class="col s2 unitText vcenter">
+        <span class="MT cabHum"></span>
+        <span class="cornerText ST">%RH</span>
+      </div>
+    </div>
+
+    <div class="row slicerow">
+      <div class="col s3 swElement">
+        <div class="swlabel ST">
+          <span>Inverter</span>
+        </div>
+        <div class="switch">
+          <label>
+            <input type="checkbox" class="inverterSW">
+            <span class="lever"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="col s3 swElement">
+        <div class="swlabel ST">
+          <span>Fridge</span>
+        </div>
+        <div class="switch">
+          <label>
+            <input type="checkbox" class="fridgeSW">
+            <span class="lever"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="col s3 swElement">
+        <div class="swlabel ST">
+          <span>Heater</span>
+        </div>
+        <div class="switch">
+          <label>
+            <input type="checkbox" class="heaterSW">
+            <span class="lever"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="col s3 swElement">
+        <div class="swlabel ST">
+          <span>Fuse box</span>
+        </div>
+        <div class="switch">
+          <label>
+            <input type="checkbox" class="fuseSW">
+            <span class="lever"></span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div id="toggleWaitModal" class="modal">
+    <div class= "vcenter">
+      <img src="/static/img/possumTrack/loader.svg">
+    </div>
+</div>
+
+
+
+
+
+
+
+  <!-- <script type="text/javascript">
+      var csrf_token = $('input[name="csrfmiddlewaretoken"]').attr('value');
+      $(document).ready(function(){
+        $.ajaxSetup({
+headers: { "X-CSRFToken": '{{csrf_token}}' }
+}); }); -->
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
+  <script src="{% static "js/possumTrack/home.js" %}"></script>
+
+</body>
